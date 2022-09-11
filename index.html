@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULATOR</title>
+    <style>
+        input {
+            width: 500px;
+            height: 40px;
+            background-color: lightgray;
+            text-align: right;
+            font-size: 30px;
+        }
+        
+        button {
+            width: 70px;
+            height: 50px;
+            background-color: whitesmoke;
+            font-size: 30px;
+        }
+        
+        table {
+            background-color: whitesmoke;
+            border-color: maroon;
+        }
+        
+        table tr td {
+            border-radius: 10px;
+            background-color: grey;
+            border-color: maroon;
+            border-width: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1 style="font-size:60px ;text-shadow: 5px 5px rgb(160, 69, 86);background-color: paleturquoise;">CALCULATOR</h1>
+        <TABLE border="5" cellspacing="25" cellpadding="10">
+            <tr>
+                <td colspan="4"><input type=" number " id="cal"></td>
+
+            </tr>
+            <tr>
+                <td><button onclick="one()">1</button></td>
+                <td><button onclick="two()">2</button></td>
+                <td><button onclick="three()">3</button></td>
+                <td><button onclick="plus()">+</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="four()">4</button></td>
+                <td><button onclick="five()">5</button></td>
+                <td><button onclick="six()">6</button></td>
+                <td><button onclick="minus()">-</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="seven()">7</button></td>
+                <td><button onclick="eight()">8</button></td>
+                <td><button onclick="nine()">9</button></td>
+                <td><button onclick="star()">*</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="dot()">.</button></td>
+                <td><button onclick="zero()">0</button></td>
+                <td><button onclick="equal()">=</button></td>
+                <td><button onclick="slash()">/</button></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button onclick="cl()">CLR</button></td>
+                <td><button onclick="delt()">DEL</button></td>
+                <td><button onclick="modulus()">%</button></td>
+
+            </tr>
+        </TABLE>
+    </center>
+    <script>
+        function one() {
+            document.getElementById("cal").value += 1;
+        }
+
+        function two() {
+            document.getElementById("cal").value += 2;
+        }
+
+        function three() {
+            document.getElementById("cal").value += 3;
+        }
+
+        function four() {
+            document.getElementById("cal").value += 4;
+        }
+
+        function five() {
+            document.getElementById("cal").value += 5;
+        }
+
+        function six() {
+            document.getElementById("cal").value += 6;
+        }
+
+        function seven() {
+            document.getElementById("cal").value += 7;
+        }
+
+        function eight() {
+            document.getElementById("cal").value += 8;
+        }
+
+        function nine() {
+            document.getElementById("cal").value += 9;
+        }
+
+        function dot() {
+            document.getElementById("cal").value += ".";
+        }
+
+        function zero() {
+            document.getElementById("cal").value += 0;
+        }
+        var a, b, c, pls, min, mul, divi, mod;
+        a = 0;
+        b = 0;
+        c = 0;
+        pls = false;
+        min = false;
+        mul = false;
+        divi = false;
+        mod = false;
+
+        function plus() {
+            pls = true;
+            a = Number(document.getElementById("cal").value);
+            document.getElementById("cal").value = " ";
+        }
+
+        function minus() {
+            min = true;
+            a = Number(document.getElementById("cal").value);
+            document.getElementById("cal").value = " ";
+        }
+
+        function star() {
+            mul = true;
+            a = Number(document.getElementById("cal").value);
+            document.getElementById("cal").value = " ";
+        }
+
+        function slash() {
+            divi = true;
+            a = Number(document.getElementById("cal").value);
+            document.getElementById("cal").value = " ";
+        }
+
+        function modulus() {
+            mod = true;
+            a = Number(document.getElementById("cal").value);
+            document.getElementById("cal").value = " ";
+        }
+
+        function cl() {
+            document.getElementById("cal").value = " ";
+        }
+
+        function delt() {
+            document.getElementById("cal").value = (document.getElementById("cal").value).slice(0, -1);
+        }
+
+        function equal() {
+            if (pls == true) {
+                b = Number(document.getElementById("cal").value);
+                c = a + b;
+                document.getElementById("cal").value = c;
+                pls = false;
+            } else if (min == true) {
+                b = Number(document.getElementById("cal").value);
+                c = a - b;
+                document.getElementById("cal").value = c;
+                min = false;
+            } else if (mul == true) {
+                b = Number(document.getElementById("cal").value);
+                c = a * b;
+                document.getElementById("cal").value = c;
+                mul = false;
+            } else if (divi == true) {
+                b = Number(document.getElementById("cal").value);
+                c = a / b;
+                document.getElementById("cal").value = c;
+                divi = false;
+            } else if (mod == true) {
+                b = Number(document.getElementById("cal").value);
+                c = a % b;
+                document.getElementById("cal").value = c;
+                mod = false;
+            }
+        }
+    </script>
+</body>
+
+</html>
